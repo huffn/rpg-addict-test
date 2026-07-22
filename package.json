@@ -5,6 +5,9 @@
   "license": "ISC",
   "author": "",
   "type": "module",
+  "engines": {
+    "node": "24"
+  },
   "scripts": {
     "start": "npx @awesome.me/buildawesome --serve",
     "build": "npx @awesome.me/buildawesome"
