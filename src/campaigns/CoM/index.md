@@ -11,7 +11,7 @@ video{
     width:initial;
 }
 </style>
-[Session Recaps](/Campaigns/CoM/recaps/)
+[Session Recaps](/campaigns/CoM/recaps/)
 
 ## Character
 [Character page for Mira Eros](Mira)

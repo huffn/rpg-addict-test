@@ -7,7 +7,7 @@ eleventyNavigation:
   parent: Campaigns
 ---
 
-[Session Recaps](/Campaigns/ToX/recaps/)
+[Session Recaps](/campaigns/ToX/recaps/)
 
 ## Character
 [Character page for Telemachus](Telemachus)
