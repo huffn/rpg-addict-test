@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    {% ogImage "_includes/layouts/og.html", { title: title } %}
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
+    <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+</head>
+<body>
+    {% include 'partials/_header.html' %}
+    {% if hero_image %}
+    <section class="hero">
+      <img src="{{ hero_image }}" alt="{{ hero_image_alt }}">
+    </section>
+    {% endif %}
+    <main tabindex="-1" class="container layout">
+        <section class="content">
+            {% block content %}
+            {% endblock %}
+        </section>
+    </main>
+    <pagefind-modal></pagefind-modal>
+</body>
+</html>

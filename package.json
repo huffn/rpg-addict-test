@@ -1,0 +1,23 @@
+{
+  "name": "ttrpg",
+  "version": "1.0.0",
+  "description": "Ramblings of an RPG Addict",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "scripts": {
+    "start": "npx @awesome.me/buildawesome --serve",
+    "build": "npx @awesome.me/buildawesome"
+  },
+  "dependencies": {
+    "@11ty/eleventy-navigation": "^1.0.5",
+    "@awesome.me/buildawesome": "4.0.0-alpha.8",
+    "@resvg/resvg-js": "^2.6.2",
+    "luxon": "^3.7.2",
+    "satori": "^0.28.2",
+    "sharp": "^0.35.3"
+  },
+  "devDependencies": {
+    "pagefind": "^1.5.2"
+  }
+}

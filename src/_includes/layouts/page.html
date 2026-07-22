@@ -1,0 +1,23 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+{% set relatedPosts = helpers.relatedPostsByRecent(collections.all, page) %}
+{% if relatedPosts | length > 0 %}
+<!-- Sidebar -->
+<aside class="sidebar">
+    <div class="related">
+        <h5>Related Posts</h5>
+        <ul>
+            {% for relatedPost in relatedPosts %}
+            <li><a href="{{relatedPost.url}}">{{ relatedPost.data.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</aside>
+{% endif %}
+<!-- Main Article -->
+<article class="page-content" {% if tags and ("gmOnly" not in tags) %}data-pagefind-body{% endif %}>
+    <h1>{{ title }}</h1>
+    <p class="post-date">{{ date | luxonDate('MMMM dd, yyyy') }}</p>
+    {{ content | safe}}
+</article>
+{% endblock %}
