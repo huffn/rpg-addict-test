@@ -4,7 +4,7 @@ date: 2023-04-04
 tags: [blog-post, CoM]
 showReadingTime: true
 ---
-# What Core Moves Are
+## What Core Moves Are
 When switching from D&D to another system, there are lots of growing pains. I've compiled some conversations from a few reddit threads to try and better understand how we should be using Core Moves when playing City of Mist.
 
 From [Blademaster](https://www.reddit.com/r/cityofmist/comments/chshhl/new_mc_guide_overview_of_the_core_moves/) on Reddit

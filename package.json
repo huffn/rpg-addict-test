@@ -12,9 +12,9 @@
   "dependencies": {
     "@11ty/eleventy-navigation": "^1.0.5",
     "@awesome.me/buildawesome": "4.0.0-alpha.8",
-    "@resvg/resvg-js": "^2.6.2",
+    "canvas": "^3.2.3",
+    "cheerio": "^1.2.0",
     "luxon": "^3.7.2",
-    "satori": "^0.28.2",
     "sharp": "^0.35.3"
   },
   "devDependencies": {

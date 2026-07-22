@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    {% ogImage "_includes/layouts/og.html", { title: title } %}
+    <meta property="og:title" content="{{ title | escape }}">
+    <meta property="og:description" content="{{ desc | escape }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.rpg-addict.com{{ page.url }}">
+      <meta property="og:image" content="https://www.rpg-addict.com{{ page.url }}og.png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
     <link rel="stylesheet" href="/css/styles.css">
     <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
     <script src="/pagefind/pagefind-component-ui.js" type="module"></script>

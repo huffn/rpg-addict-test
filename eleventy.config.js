@@ -1,13 +1,12 @@
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import { execSync } from 'child_process';
 import { DateTime } from "luxon";
-import EleventyPluginOgImage from 'eleventy-plugin-og-image';
-import { promises as fs } from 'node:fs';
+import eleventyGenerateOgImage from './eleventy-generate-og-image.js';
 
 
 export default function (eleventyConfig) {
-  eleventyConfig.setInputDirectory('src');
-  eleventyConfig.setOutputDirectory('dist');
+  eleventyConfig.setInputDirectory('./src');
+  eleventyConfig.setOutputDirectory('./dist');
   // Set directories to pass through to the dist folder
   eleventyConfig.addPassthroughCopy({ 'src/css': 'css' });
   eleventyConfig.addPassthroughCopy({ 'src/assets': 'assets' });
@@ -15,6 +14,17 @@ export default function (eleventyConfig) {
 
   eleventyConfig.amendLibrary('md', (mdLib) => {
     mdLib.set({ html: true, linkify: true, typographer: true });
+  });
+
+  eleventyConfig.addGlobalData('eleventyComputed', {
+    title: (data) => {
+      if (data.title) return data.title;
+      const slug = data.page?.fileSlug || '';
+      const cleanedSlug = slug.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+      return cleanedSlug
+        .replace(/[-_]+/g, ' ')
+        .replace(/\b\w/g, (match) => match.toUpperCase());
+    }
   });
 
   eleventyConfig.addTransform('show-video', (content) => {
@@ -105,18 +115,7 @@ export default function (eleventyConfig) {
     return collectionApi.getFilteredByTag("blog-post");
   });
 
-  eleventyConfig.addPlugin(EleventyPluginOgImage, {
-    satoriOptions: {
-      fonts: [
-        {
-          name: 'Inter',
-          data: fs.readFile('./src/assets/InterVariable.woff2'),
-          weight: 700,
-          style: 'normal',
-        },
-      ],
-    },
-  });
+  eleventyConfig.addPlugin(eleventyGenerateOgImage)
 
   eleventyConfig.on('eleventy.after', async () => {
     execSync(`npx -y pagefind --site dist`, { encoding: 'utf-8' });
